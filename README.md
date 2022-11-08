@@ -6,6 +6,71 @@
 2. [Jayanti Totti Andhina](https://github.com/JayantiTA) (5025201037)
 3. [Gaudhiwaa Hendrasto](https://github.com/gaudhiwaa) (5025201066)
 
+Topologi:
+
+![](./media/image23.png)
+
+1.  WISE sebagai DNS Server:
+
+![](./media/image33.png)
+
+Kemudian install bind9
+
+Westalis sebagai DHCP Server:
+
+![](./media/image32.png)
+
+Kemudian install isc-dhcp-server
+
+Setup /etc/default/isc-dhcp-server:
+
+![](./media/image2.png)
+
+Setup dhcpd.conf:
+
+![](./media/image18.png)
+
+Berlint sebagai Proxy Server:
+
+![](./media/image38.png)
+
+Kemudian install squid
+
+Clients network interfaces (SSS, Garden, Eden, NewstonCastle,
+KemonoPark):
+
+![](./media/image37.png)
+
+2.  Setup network interfaces Ostania sebagai DHCP Relay:
+
+![](./media/image12.png)
+
+Kemudian install isc-dhcp-relay
+
+Setup /etc/default/isc-dhcp-relay:
+
+![](./media/image26.png)
+
+3.  Client yang melalui Switch1 mendapatkan range IP dari \[prefix
+    IP\].1.50 - \[prefix IP\].1.88 dan 192.200.1.120 - 192.200.1.155
+
+![](./media/image4.png)
+
+Restart node client terlebih dahulu, kemudian testing client pada
+switch1:
+
+![](./media/image19.png)
+
+4.  Client yang melalui Switch3 mendapatkan range IP dari \[prefix
+    IP\].3.10 - \[prefix IP\].3.30 dan 192.200.3.60 - 192.200.3.85
+
+![](./media/image15.png)
+
+Restart node client terlebih dahulu, kemudian testing client pada
+switch3:
+
+![](./media/image29.png)
+
 ### Proxy Server
 
 1.  Client hanya dapat mengakses internet diluar (selain) hari & jam
