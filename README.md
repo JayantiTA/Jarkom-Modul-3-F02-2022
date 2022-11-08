@@ -6,9 +6,11 @@
 2. [Jayanti Totti Andhina](https://github.com/JayantiTA) (5025201037)
 3. [Gaudhiwaa Hendrasto](https://github.com/gaudhiwaa) (5025201066)
 
-Topologi:
+### Topologi:
 
 ![](./media/image23.png)
+
+### DHCP:
 
 1.  WISE sebagai DNS Server:
 
@@ -70,6 +72,56 @@ Restart node client terlebih dahulu, kemudian testing client pada
 switch3:
 
 ![](./media/image29.png)
+
+5.  Client mendapatkan DNS dari WISE dan client dapat terhubung dengan
+    internet melalui DNS tersebut.
+
+Tambahkan DNS Forwarder pada WISE:
+
+![](./media/image16.png)
+
+Client pada switch1:
+
+![](./media/image25.png)
+
+Client pada switch3:
+
+![](./media/image9.png)
+
+6.  Lama waktu DHCP server meminjamkan alamat IP kepada Client yang
+    melalui Switch1 selama 5 menit sedangkan pada client yang melalui
+    Switch3 selama 10 menit. Dengan waktu maksimal yang dialokasikan
+    untuk peminjaman alamat IP selama 115 menit.
+
+Ubah default-lease-time menjadi 300 dan max-lease-time menjadi 6900
+pada switch1:
+
+![](./media/image4.png)
+
+Ubah default-lease-time menjadi 600 dan max-lease-time menjadi 6900
+pada switch3:
+
+![](./media/image15.png)
+
+7.  Loid dan Franky berencana menjadikan **Eden** sebagai server untuk
+    pertukaran informasi dengan **alamat IP yang tetap** dengan IP
+    \[prefix IP\].3.13
+
+Cek hwaddress milik Eden:
+
+![](./media/image35.png)
+
+Tambahkan script pada /etc/dhcp/dhcpd.conf:
+
+![](./media/image17.png)
+
+Tambahkan network interfaces pada Eden:
+
+![](./media/image27.png)
+
+Restart isc-dhcp-server dan restart node Eden, kemudian cek ip Eden:
+
+![](./media/image6.png)
 
 ### Proxy Server
 
